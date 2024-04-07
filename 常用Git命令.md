@@ -99,7 +99,6 @@ git log -3
 回退
 
 ```
-git reset --hard HEAD^
 git reset --hard HEAD~3
 git reset --hard <commit>
 ```
