@@ -71,3 +71,35 @@ git branch -D hotfix
 ```
 git branch -d -r hotfix
 ```
+
+打标签
+
+```
+git tag v1.5
+```
+
+删除标签
+
+```
+git tag -d v1.5
+```
+
+删除远程标签
+
+```
+git push origin -d v1.5
+```
+
+列出提交日志
+
+```
+git log -3
+```
+
+回退
+
+```
+git reset --hard HEAD^
+git reset --hard HEAD~3
+git reset --hard <commit>
+```
