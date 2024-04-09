@@ -1,0 +1,1 @@
+# XMLHttpRequest和Fetch API
