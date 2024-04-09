@@ -1,22 +1,9 @@
 # Grok-1
 
-##
+**314B parameters Mixture-of-Experts (MoE)**<br>
+3140亿参数、混合专家模型
 
-**Parameters:** 314B<br>
-参数: 3140亿
+**A machine with enough GPU memory is required**
 
-**Architecture:** Mixture of 8 Experts (MoE)
-
-**Experts Utilization:** 2 experts used per token
-
-**Layers:** 64
-
-**Attention Heads:** 48 for queries, 8 for keys/values
-
-**Embedding Size:** 6,144
-
-**Tokenization:** SentencePiece tokenizer with 131,072 tokens
-
-**Additional Features:** Rotary embeddings (RoPE)、Supports activation sharding and 8-bit quantization
-
-**Maximum Sequence Length (context):** 8,192 tokens
+**Under the Apache 2.0 license**<br>
+商用友好
