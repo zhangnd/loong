@@ -1,6 +1,6 @@
 # Vue2源码
 
-<a href="https://github.com/vuejs/vue/tree/v2.6.14" target="_blank">https://github.com/vuejs/vue/tree/v2.6.14</a>
+https://github.com/vuejs/vue/tree/v2.6.14
 
 ```js
 import { initMixin } from './init'
