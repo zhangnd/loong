@@ -40,7 +40,7 @@ systemctl enable docker
 docker pull gitlab/gitlab-ce
 ```
 
-文档：<a href="https://docs.gitlab.com/ee/install/docker.html" target="_blank">https://docs.gitlab.com/ee/install/docker.html</a>
+文档：https://docs.gitlab.com/ee/install/docker.html
 
 ```bash
 export GITLAB_HOME=/srv/gitlab
@@ -64,4 +64,4 @@ docker run --detach \
 docker pull gitlab/gitlab-runner
 ```
 
-文档：<a href="https://docs.gitlab.com/runner/install/docker.html" target="_blank">https://docs.gitlab.com/runner/install/docker.html</a>
+文档：https://docs.gitlab.com/runner/install/docker.html
