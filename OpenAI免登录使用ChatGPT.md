@@ -2,12 +2,12 @@
 
 ## Start using ChatGPT instantly
 
-<a href="https://openai.com/blog/start-using-chatgpt-instantly" target="_blank">https://openai.com/blog/start-using-chatgpt-instantly</a>
+https://openai.com/blog/start-using-chatgpt-instantly
 
 ## Try
 
-<a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a>
+https://chat.openai.com
 
-<a href="https://gpt.github.cn.com" target="_blank">https://gpt.github.cn.com</a>
+https://gpt.github.cn.com
 
-<a href="https://chat.gptdsb.com" target="_blank">https://chat.gptdsb.com</a>
+https://chat.gptdsb.com
