@@ -8,7 +8,7 @@ nvm（Node Version Manager）是 node.js 的版本管理器，可以让我们轻
 
 下载地址：https://github.com/coreybutler/nvm-windows/releases
 
-![](https://img.zhangniandong.com/2024/20231211091636.png)
+![](https://img.zhangniandong.com/2024/20240307152037.png)
 
 卸载计算机已安装的 node.js
 
