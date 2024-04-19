@@ -43,3 +43,22 @@ lRUCache.get(4);    // 返回 4<br>
 -  `0 <= value <= 10^5`
 
 -  最多调用 `2 * 10^5` 次 `get` 和 `put`
+
+**</> 代码**
+
+```java
+class LRUCache {
+
+    public LRUCache(int capacity) {
+
+    }
+    
+    public int get(int key) {
+
+    }
+    
+    public void put(int key, int value) {
+
+    }
+}
+```
