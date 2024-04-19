@@ -14,3 +14,32 @@ https://leetcode.cn/problems/lru-cache/description
 函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
 
 函数 `get` 和 `put` 必须以 `O(1)` 的平均时间复杂度运行。
+
+**示例：**
+
+> **输入**<br>
+["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]<br>
+[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]<br>
+**输出**<br>
+[null, null, null, 1, null, -1, null, -1, 3, 4]<br>
+**解释**<br>
+LRUCache lRUCache = new LRUCache(2);<br>
+lRUCache.put(1, 1); // 缓存是 {1=1}<br>
+lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}<br>
+lRUCache.get(1);    // 返回 1<br>
+lRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}<br>
+lRUCache.get(2);    // 返回 -1 (未找到)<br>
+lRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}<br>
+lRUCache.get(1);    // 返回 -1 (未找到)<br>
+lRUCache.get(3);    // 返回 3<br>
+lRUCache.get(4);    // 返回 4<br>
+
+**提示：**
+
+- `1 <= capacity <= 3000`
+
+- `0 <= key <= 10000`
+
+-  `0 <= value <= 10^5`
+
+-  最多调用 `2 * 10^5` 次 `get` 和 `put`
