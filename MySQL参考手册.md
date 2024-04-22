@@ -288,3 +288,15 @@ mysql> SELECT owner, COUNT(*) FROM pet GROUP BY owner;
 | Diane  |        2 |
 +--------+----------+
 ```
+
+```
+mysql> DELETE FROM pet WHERE name = 'Puffball';
+```
+
+```
+mysql> DELETE FROM pet;
+```
+
+```
+mysql> DROP TABLE pet;
+```
