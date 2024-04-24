@@ -114,3 +114,12 @@ mvn clean package
 docker compose up -d
 docker compose logs -f
 ```
+
+## 进入容器
+
+```bash
+# 前端
+docker exec -it tiger /bin/sh
+# 后端
+docker exec -it mysql env LANG=C.UTF-8 /bin/bash
+```
