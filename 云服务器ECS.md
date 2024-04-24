@@ -42,22 +42,6 @@ docker compose version
 https://www.oracle.com/cn/java/technologies/downloads
 
 ```bash
-getconf LONG_BIT
-```
-
-```
-64
-```
-
-```bash
-file /bin/ls
-```
-
-```
-/bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=c8ada1f7095f6b2bb7ddc848e088c2d615c3743e, stripped
-```
-
-```bash
 mkdir /usr/local/java
 wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
 tar -zxvf jdk-17_linux-x64_bin.tar.gz
