@@ -28,7 +28,11 @@ yum update
 
 ```bash
 yum install yum-utils
+yum install lrzsz
+yum install unzip
 ```
+
+### docker
 
 https://docs.docker.com/engine/install/centos
 
@@ -37,4 +41,98 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 docker -v
 docker compose version
+```
+
+### java
+
+https://www.oracle.com/cn/java/technologies/downloads
+
+```bash
+getconf LONG_BIT
+```
+
+```
+64
+```
+
+```bash
+file /bin/ls
+```
+
+```
+/bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=c8ada1f7095f6b2bb7ddc848e088c2d615c3743e, stripped
+```
+
+```bash
+mkdir /usr/local/java
+wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+tar -zxvf jdk-17_linux-x64_bin.tar.gz
+mv jdk-17.0.11 /usr/local/java
+```
+
+配置环境变量
+
+```bash
+vi /etc/profile
+```
+
+```
+export JAVA_HOME=/usr/local/java/jdk-17.0.11
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+```bash
+source /etc/profile
+java -version
+```
+
+### maven
+
+https://maven.apache.org/download.cgi
+
+```bash
+mkdir /usr/local/maven
+wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+tar -zxvf apache-maven-3.9.6-bin.tar.gz
+mv apache-maven-3.9.6 /usr/local/maven
+```
+
+配置环境变量
+
+```bash
+vi /etc/profile
+```
+
+```
+export M2_HOME=/usr/local/maven/apache-maven-3.9.6
+export PATH=$M2_HOME/bin:$PATH
+```
+
+```bash
+source /etc/profile
+mvn -v
+```
+
+###
+
+```bash
+systemctl start docker
+# 开机启动
+systemctl enable docker
+```
+
+### 构建镜像
+
+```bash
+# 前端
+docker build -t tiger:latest .
+# 后端
+mvn clean package
+```
+
+### 运行容器
+
+```bash
+docker compose up -d
+docker compose logs -f
 ```
