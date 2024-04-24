@@ -25,6 +25,7 @@
 ```bash
 echo $LANG
 locale -a
+localectl set-locale LANG=zh_CN.UTF-8
 ```
 
 ```bash
