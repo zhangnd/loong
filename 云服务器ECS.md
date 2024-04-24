@@ -23,6 +23,11 @@
 ##
 
 ```bash
+echo $LANG
+locale -a
+```
+
+```bash
 yum update
 ```
 
