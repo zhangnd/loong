@@ -26,12 +26,6 @@
 yum update
 ```
 
-```bash
-yum install yum-utils
-yum install lrzsz
-yum install unzip
-```
-
 ### docker
 
 https://docs.docker.com/engine/install/centos
