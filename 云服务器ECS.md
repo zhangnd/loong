@@ -54,8 +54,6 @@ tar -zxvf jdk-17_linux-x64_bin.tar.gz
 mv jdk-17.0.11 /usr/local/java
 ```
 
-配置环境变量
-
 ```bash
 vi /etc/profile
 ```
@@ -80,8 +78,6 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bi
 tar -zxvf apache-maven-3.9.6-bin.tar.gz
 mv apache-maven-3.9.6 /usr/local/maven
 ```
-
-配置环境变量
 
 ```bash
 vi /etc/profile
