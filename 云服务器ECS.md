@@ -109,6 +109,13 @@ docker build -t tiger:latest .
 mvn clean package
 ```
 
+### 创建网络
+
+```bash
+docker network create root_default
+docker network ls
+```
+
 ### 运行容器
 
 ```bash
