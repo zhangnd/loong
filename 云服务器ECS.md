@@ -101,16 +101,13 @@ mvn -v
 
 ```bash
 systemctl start docker
-# 开机启动
 systemctl enable docker
 ```
 
 ### 构建镜像
 
 ```bash
-# 前端
 docker build -t tiger:latest .
-# 后端
 mvn clean package
 ```
 
@@ -124,8 +121,6 @@ docker compose logs -f
 ### 进入容器
 
 ```bash
-# 前端
 docker exec -it tiger /bin/sh
-# 后端
-docker exec -it mysql env LANG=C.UTF-8 /bin/bash
+docker exec -it mysql env LANG=C.UTF-8 mysql -u root -p
 ```
