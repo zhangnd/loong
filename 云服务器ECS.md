@@ -107,7 +107,9 @@ systemctl enable docker
 ### 构建镜像
 
 ```bash
+# 前端
 docker build -t tiger:latest .
+# 后端
 mvn clean package
 ```
 
