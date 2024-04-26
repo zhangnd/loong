@@ -20,7 +20,7 @@
 
 公网带宽 ：按固定带宽 1Mbps
 
-##
+## 环境部署
 
 ```bash
 echo $LANG
@@ -30,6 +30,10 @@ localectl set-locale LANG=zh_CN.UTF-8
 
 ```bash
 yum update
+```
+
+```bash
+yum install lrzsz unzip
 ```
 
 ### docker
@@ -93,11 +97,21 @@ source /etc/profile
 mvn -v
 ```
 
-###
+### 常用命令
 
 ```bash
 systemctl start docker
 systemctl enable docker
+docker system df
+docker system prune
+docker image prune
+docker ps
+docker images
+docker stop tiger
+docker rm tiger
+docker rmi tiger:latest
+docker stop $(docker ps -qa)
+docker rm $(docker ps -qa)
 ```
 
 ### 构建镜像
