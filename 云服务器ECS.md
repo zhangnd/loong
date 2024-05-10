@@ -110,8 +110,6 @@ docker images
 docker stop tiger
 docker rm tiger
 docker rmi tiger:latest
-docker stop $(docker ps -qa)
-docker rm $(docker ps -qa)
 ```
 
 ### 构建镜像
