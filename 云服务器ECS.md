@@ -107,9 +107,6 @@ docker system prune
 docker image prune
 docker ps
 docker images
-docker stop tiger
-docker rm tiger
-docker rmi tiger:latest
 ```
 
 ### 构建镜像
