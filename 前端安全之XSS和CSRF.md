@@ -16,13 +16,15 @@
 
 ### 分类
 
-XSS攻击分为几种类型：
-
 #### 存储型XSS
 
 #### 反射型XSS
 
 #### DOM型XSS
+
+### 危害
+
+### 防御
 
 ## CSRF：跨站请求伪造（Cross-site request forgery）
 
