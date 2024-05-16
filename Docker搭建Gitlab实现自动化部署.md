@@ -33,3 +33,30 @@ ce为社区免费版。
 ```bash
 docker pull gitlab/gitlab-ce
 ```
+
+```
+[root@VM-0-10-centos ~]# docker images
+REPOSITORY         TAG       IMAGE ID       CREATED      SIZE
+gitlab/gitlab-ce   latest    883ec00180cd   8 days ago   2.87GB
+```
+
+**运行gitlab容器**
+
+文档：https://docs.gitlab.com/ee/install/docker.html
+
+```bash
+mkdir -p /srv/gitlab
+```
+
+```bash
+docker run --detach \
+  --hostname 175.178.167.11 \
+  --publish 443:443 --publish 80:80 \
+  --name gitlab \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  --shm-size 256m \
+  gitlab/gitlab-ce:latest
+```
