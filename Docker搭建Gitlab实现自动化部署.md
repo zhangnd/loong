@@ -65,6 +65,8 @@ docker run --detach \
 
 浏览器访问：http://175.178.167.11
 
+![](https://img.zhangniandong.com/2024/175.178.167.11_users_sign_in.png)
+
 初始用户名：root
 
 初始密码：
@@ -81,6 +83,10 @@ Password: Ery0bdXdk6EhQLMy0Z96QRs2N2goN3Vh+jIlcDDX7WA=
 
 # NOTE: This file will be automatically deleted in the first reconfigure run after 24 hours.
 ```
+
+登录进去。
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_.png)
 
 **拉取gitlab-runner镜像**
 
