@@ -81,3 +81,27 @@ Password: Ery0bdXdk6EhQLMy0Z96QRs2N2goN3Vh+jIlcDDX7WA=
 
 # NOTE: This file will be automatically deleted in the first reconfigure run after 24 hours.
 ```
+
+**拉取gitlab-runner镜像**
+
+```bash
+docker pull gitlab/gitlab-runner
+```
+
+```
+[root@VM-0-10-centos ~]# docker images
+REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
+gitlab/gitlab-ce       latest    883ec00180cd   8 days ago    2.87GB
+gitlab/gitlab-runner   latest    1d176dab5774   12 days ago   766MB
+```
+
+**运行gitlab-runner容器**
+
+文档：https://docs.gitlab.com/runner/install/docker.html
+
+```bash
+docker run -d --name gitlab-runner --restart always \
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  gitlab/gitlab-runner:latest
+```
