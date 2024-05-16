@@ -1,30 +1,20 @@
 # Docker搭建Gitlab实现自动化部署
 
+**4核8G服务器**
+
+好贵一个月，可以使用[腾讯云按量计费](https://buy.cloud.tencent.com/cvm?tab=custom&devPayMode=hourly)，用完关机。
+
 **更新yum**
 
 ```bash
 yum update
 ```
 
-```bash
-yum install yum-utils
-```
-
-**添加docker阿里云镜像源**
+**安装docker**
 
 ```bash
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-```
-
-**通过yum安装docker**
-
-```bash
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install docker-ce
-```
-
-**查看docker版本**
-
-```bash
 docker -v
 ```
 
@@ -36,32 +26,10 @@ systemctl start docker
 systemctl enable docker
 ```
 
+**拉取gitlab-ce镜像**
+
+ce为社区免费版。
+
 ```bash
 docker pull gitlab/gitlab-ce
 ```
-
-文档：https://docs.gitlab.com/ee/install/docker.html
-
-```bash
-export GITLAB_HOME=/srv/gitlab
-```
-
-```bash
-docker run --detach \
-  --hostname 公网ip \
-  --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'" \
-  --publish 443:443 --publish 80:80 --publish 22:22 \
-  --name gitlab \
-  --restart always \
-  --volume $GITLAB_HOME/config:/etc/gitlab \
-  --volume $GITLAB_HOME/logs:/var/log/gitlab \
-  --volume $GITLAB_HOME/data:/var/opt/gitlab \
-  --shm-size 256m \
-  gitlab/gitlab-ee:<version>-ee.0
-```
-
-```bash
-docker pull gitlab/gitlab-runner
-```
-
-文档：https://docs.gitlab.com/runner/install/docker.html
