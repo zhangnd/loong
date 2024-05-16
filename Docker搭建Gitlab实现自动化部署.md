@@ -108,6 +108,8 @@ docker run -d --name gitlab-runner --restart always \
 
 **安装gitlab-runner**
 
+文档：https://docs.gitlab.com/runner/install/linux-repository.html
+
 ```bash
 curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh" | sudo bash
 yum install gitlab-runner
