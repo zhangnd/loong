@@ -131,7 +131,7 @@ yum install gitlab-runner
 
 填写tag，点击Create runner。
 
-创建成功，得到token：glrt-5AZqiUy5yypqwLuhGrxz。
+创建成功，得到token：glrt-5AZqiUy5yypqwLuhGrxz
 
 ### 注册runner
 
@@ -150,3 +150,44 @@ sudo gitlab-runner register \
 注册成功后的效果：
 
 ![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners.png)
+
+### 构建项目
+
+在项目根目录新建DockerFile文件。
+
+```bash
+FROM node:alpine as builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+在项目根目录新建nginx.conf文件。
+
+在项目根目录新建.gitlab-ci.yml文件。
+
+```bash
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  tags:
+    - docker
+  only:
+    - dev
+  image: docker
+  script:
+    - docker build -t $CI_PROJECT_NAME:$CI_PIPELINE_ID .
+    - if [ $(docker ps -aq --filter name=$CI_PROJECT_NAME) ]; then docker rm -f $CI_PROJECT_NAME; fi
+    - docker run -d -p 80:80 --name $CI_PROJECT_NAME $CI_PROJECT_NAME:$CI_PIPELINE_ID
+```
+
+预定义变量：https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
+提交代码到仓库，触发pipeline流水线构建：
