@@ -121,6 +121,18 @@ curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/s
 yum install gitlab-runner
 ```
 
+**创建runner**
+
+文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html#create-an-instance-runner-with-a-runner-authentication-token
+
+http://175.178.167.11/admin/runners
+
+点击New instance runner。
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_new.png)
+
+点击Create runner。
+
 **注册runner**
 
 文档：https://docs.gitlab.com/runner/register
