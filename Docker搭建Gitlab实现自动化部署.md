@@ -60,3 +60,24 @@ docker run --detach \
   --shm-size 256m \
   gitlab/gitlab-ce:latest
 ```
+
+**gitlab部署成功**
+
+浏览器访问：http://175.178.167.11
+
+初始用户名：root
+
+初始密码：
+
+```
+[root@VM-0-10-centos ~]# cat /srv/gitlab/config/initial_root_password
+# WARNING: This value is valid only in the following conditions
+#          1. If provided manually (either via `GITLAB_ROOT_PASSWORD` environment variable or via `gitlab_rails['initial_root_password']` setting in `gitlab.rb`, it was provided before database was seeded for the first time (usually, the first reconfigure run).
+#          2. Password hasn't been changed manually, either via UI or via command line.
+#
+#          If the password shown here doesn't work, you must reset the admin password following https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password.
+
+Password: Ery0bdXdk6EhQLMy0Z96QRs2N2goN3Vh+jIlcDDX7WA=
+
+# NOTE: This file will be automatically deleted in the first reconfigure run after 24 hours.
+```
