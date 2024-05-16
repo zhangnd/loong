@@ -116,3 +116,13 @@ yum install gitlab-runner
 **注册runner**
 
 文档：https://docs.gitlab.com/runner/register
+
+```bash
+sudo gitlab-runner register \
+  --non-interactive \
+  --url "http://175.178.167.11" \
+  --token "$RUNNER_TOKEN" \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --description "docker-runner"
+```
