@@ -146,3 +146,7 @@ sudo gitlab-runner register \
   --docker-image alpine:latest \
   --description "docker-runner"
 ```
+
+注册成功后的效果：
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners.png)
