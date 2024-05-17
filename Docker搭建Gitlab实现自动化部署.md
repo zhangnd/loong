@@ -123,7 +123,7 @@ yum install gitlab-runner
 
 ### 创建runner
 
-文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html#create-an-instance-runner-with-a-runner-authentication-token
+文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
 
 打开：http://175.178.167.11/admin/runners
 
