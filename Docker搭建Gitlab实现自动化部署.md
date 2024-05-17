@@ -125,6 +125,10 @@ yum install gitlab-runner
 
 文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
 
+Install GitLab Runner on a server separate to where GitLab is installed.
+
+将GitLab Runner与GitLab分开部署。
+
 打开：http://175.178.167.11/admin/runners
 
 点击New instance runner。
