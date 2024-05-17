@@ -10,6 +10,8 @@ CPU：Up to 20 Requests per Second (RPS) or 1000 users - 8 vCPU.
 
 Memory：Up to 20 Requests per Second (RPS) or 1000 users - 8 GB (Minimum), 16 GB (Recommended).
 
+4核8G
+
 传送门：[腾讯云按量计费](https://buy.cloud.tencent.com/cvm?tab=custom&devPayMode=hourly)
 
 ### 更新yum
@@ -103,6 +105,8 @@ Password: Ery0bdXdk6EhQLMy0Z96QRs2N2goN3Vh+jIlcDDX7WA=
 Install GitLab Runner on a server separate to where GitLab is installed.
 
 将GitLab Runner与GitLab分开部署。
+
+在另一台服务器上部署GitLab Runner，配置采用2核4G。
 
 ### 拉取镜像
 
