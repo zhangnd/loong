@@ -117,7 +117,6 @@ docker pull gitlab/gitlab-runner
 ```
 [root@VM-0-10-centos ~]# docker images
 REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
-gitlab/gitlab-ce       latest    883ec00180cd   8 days ago    2.87GB
 gitlab/gitlab-runner   latest    1d176dab5774   12 days ago   766MB
 ```
 
