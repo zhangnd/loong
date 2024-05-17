@@ -138,7 +138,7 @@ yum install gitlab-runner
 文档：https://docs.gitlab.com/runner/register/index.html
 
 ```bash
-sudo gitlab-runner register \
+gitlab-runner register \
   --non-interactive \
   --url "http://175.178.167.11" \
   --token "glrt-5AZqiUy5yypqwLuhGrxz" \
