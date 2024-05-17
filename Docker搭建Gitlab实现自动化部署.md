@@ -97,3 +97,71 @@ Password: Ery0bdXdk6EhQLMy0Z96QRs2N2goN3Vh+jIlcDDX7WA=
 登录成功。
 
 ![](https://img.zhangniandong.com/2024/175.178.167.11_.jpg)
+
+## GitLab Runner
+
+Install GitLab Runner on a server separate to where GitLab is installed.
+
+将GitLab Runner与GitLab分开部署。
+
+### 拉取镜像
+
+```bash
+docker pull gitlab/gitlab-runner
+```
+
+```
+[root@VM-0-10-centos ~]# docker images
+REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
+gitlab/gitlab-ce       latest    883ec00180cd   8 days ago    2.87GB
+gitlab/gitlab-runner   latest    1d176dab5774   12 days ago   766MB
+```
+
+### 运行容器
+
+文档：https://docs.gitlab.com/runner/install/docker.html
+
+```bash
+mkdir -p /srv/gitlab-runner/config
+```
+
+```bash
+docker run -d --name gitlab-runner --restart always \
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  gitlab/gitlab-runner:latest
+```
+
+### 创建runner
+
+文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
+
+打开：http://175.178.167.11/admin/runners
+
+点击New instance runner。
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners.jpg)
+
+填写tag，点击Create runner。
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_new.jpg)
+
+创建成功，得到token：glrt-5AZqiUy5yypqwLuhGrxz
+
+### 注册runner
+
+文档：https://docs.gitlab.com/runner/register/index.html
+
+```bash
+docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+  --non-interactive \
+  --url "http://175.178.167.11" \
+  --token "glrt-5AZqiUy5yypqwLuhGrxz" \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --description "docker-runner"
+```
+
+注册成功后的效果：
+
+![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_(1).jpg)
