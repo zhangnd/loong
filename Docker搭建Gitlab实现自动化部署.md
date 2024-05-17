@@ -135,7 +135,7 @@ yum install gitlab-runner
 
 ### 注册runner
 
-文档：https://docs.gitlab.com/runner/register
+文档：https://docs.gitlab.com/runner/register/index.html
 
 ```bash
 sudo gitlab-runner register \
