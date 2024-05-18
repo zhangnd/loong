@@ -10,7 +10,7 @@ CPU：Up to 20 Requests per Second (RPS) or 1000 users - 8 vCPU.
 
 Memory：Up to 20 Requests per Second (RPS) or 1000 users - 8 GB (Minimum), 16 GB (Recommended).
 
-上4核8G。
+上2核4G。
 
 传送门：[腾讯云按量计费](https://buy.cloud.tencent.com/cvm?tab=custom&devPayMode=hourly)
 
