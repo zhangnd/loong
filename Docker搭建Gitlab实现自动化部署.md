@@ -188,7 +188,7 @@ deploy:
     - ruby
   only:
     - master
-  image: docker:stable
+  image: docker
   script:
     - docker build -t $CI_PROJECT_NAME:$CI_PIPELINE_ID .
     - if [ $(docker ps -aq --filter name=$CI_PROJECT_NAME) ]; then docker rm -f $CI_PROJECT_NAME; fi
