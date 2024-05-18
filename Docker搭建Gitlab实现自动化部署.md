@@ -45,7 +45,7 @@ docker pull gitlab/gitlab-ce
 ```
 
 ```
-[root@VM-0-2-centos ~]# docker images
+[root@VM-0-10-centos ~]# docker images
 REPOSITORY         TAG       IMAGE ID       CREATED      SIZE
 gitlab/gitlab-ce   latest    82056e2f7336   2 days ago   2.86GB
 ```
@@ -84,7 +84,7 @@ docker run --detach \
 初始密码：
 
 ```
-[root@VM-0-2-centos ~]# cat /srv/gitlab/config/initial_root_password
+[root@VM-0-10-centos ~]# cat /srv/gitlab/config/initial_root_password
 # WARNING: This value is valid only in the following conditions
 #          1. If provided manually (either via `GITLAB_ROOT_PASSWORD` environment variable or via `gitlab_rails['initial_root_password']` setting in `gitlab.rb`, it was provided before database was seeded for the first time (usually, the first reconfigure run).
 #          2. Password hasn't been changed manually, either via UI or via command line.
