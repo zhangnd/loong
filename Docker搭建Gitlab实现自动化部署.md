@@ -14,6 +14,8 @@ Memory：Up to 20 Requests per Second (RPS) or 1000 users - 8 GB (Minimum), 16 G
 
 传送门：[腾讯云按量计费](https://buy.cloud.tencent.com/cvm?tab=custom&devPayMode=hourly)
 
+公网ip：175.178.167.11
+
 ### 更新yum
 
 ```bash
@@ -110,6 +112,8 @@ Install GitLab Runner on a server separate to where GitLab is installed.
 
 在另一台服务器上部署GitLab Runner，配置采用2核4G。
 
+公网ip：119.91.52.121
+
 Docker部分同上。
 
 ### 创建runner
@@ -162,7 +166,7 @@ gitlab-runner register \
 
 在项目根目录新建DockerFile文件。
 
-```bash
+```
 FROM node:18.20.2-alpine as builder
 WORKDIR /app
 COPY package.json package-lock.json ./
@@ -176,9 +180,58 @@ COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 
 在项目根目录新建nginx.conf文件。
 
+```
+server {
+  listen       80;
+  server_name  localhost;
+
+  # charset koi8-r;
+
+  # access_log  logs/host.access.log  main;
+
+  location / {
+    root       /usr/share/nginx/html;
+    index      index.html index.htm;
+    try_files  $uri $uri/ /index.html;
+  }
+
+  # error_page  404              /404.html;
+
+  # redirect server error pages to the static page /50x.html
+  #
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+    root   html;
+  }
+
+  # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+  #
+  # location ~ \.php$ {
+  #   proxy_pass   http://127.0.0.1;
+  # }
+
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  #
+  # location ~ \.php$ {
+  #   root           html;
+  #   fastcgi_pass   127.0.0.1:9000;
+  #   fastcgi_index  index.php;
+  #   fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+  #   include        fastcgi_params;
+  # }
+
+  # deny access to .htaccess files, if Apache's document root
+  # concurs with nginx's one
+  #
+  # location ~ /\.ht {
+  #   deny  all;
+  # }
+}
+```
+
 在项目根目录新建.gitlab-ci.yml文件。
 
-```bash
+```
 stages:
   - deploy
 
@@ -199,4 +252,4 @@ deploy:
 
 提交代码到仓库，触发pipeline流水线构建：
 
-浏览器访问：http://114.132.248.44
+浏览器访问：http://119.91.52.121
