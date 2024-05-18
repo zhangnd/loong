@@ -185,7 +185,7 @@ stages:
 deploy:
   stage: deploy
   tags:
-    - ruby
+    - shared
   only:
     - master
   image: docker
