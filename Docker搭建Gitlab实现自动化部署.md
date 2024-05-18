@@ -45,9 +45,9 @@ docker pull gitlab/gitlab-ce
 ```
 
 ```
-[root@VM-0-10-centos ~]# docker images
+[root@VM-0-2-centos ~]# docker images
 REPOSITORY         TAG       IMAGE ID       CREATED      SIZE
-gitlab/gitlab-ce   latest    883ec00180cd   8 days ago   2.87GB
+gitlab/gitlab-ce   latest    82056e2f7336   2 days ago   2.86GB
 ```
 
 ### 运行容器
