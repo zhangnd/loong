@@ -163,7 +163,7 @@ gitlab-runner register \
 在项目根目录新建DockerFile文件。
 
 ```bash
-FROM node:alpine as builder
+FROM node:18.20.2-alpine as builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
