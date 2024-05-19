@@ -250,6 +250,23 @@ deploy:
 
 预定义变量：https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
 
-提交代码到仓库，触发pipeline流水线构建：
+提交代码到仓库，触发流水线构建。
+
+作业如果报错：ERROR: error during connect: Head "http[]()://docker:2375/_ping": dial tcp: lookup docker on 183.60.83.19:53: no such host
+
+可以修改/etc/gitlab-runner/config.toml：
+
+```
+volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+```
+
+重启gitlab-runner。
+
+```bash
+gitlab-runner stop
+gitlab-runner start
+```
+
+重新构建流水线成功。
 
 浏览器访问：http://119.91.52.121
