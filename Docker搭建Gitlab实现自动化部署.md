@@ -83,7 +83,7 @@ docker run --detach \
 
 浏览器访问：http://111.230.29.92
 
-![](https://img.zhangniandong.com/2024/175.178.167.11_users_sign_in.jpg)
+![](https://img.zhangniandong.com/2024/20240307175044.jpg)
 
 初始用户名：root
 
@@ -104,7 +104,7 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 登录成功。
 
-![](https://img.zhangniandong.com/2024/175.178.167.11_.jpg)
+![](https://img.zhangniandong.com/2024/20240307175232.jpg)
 
 ### 创建runner
 
@@ -114,11 +114,11 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 点击New instance runner。
 
-![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners.jpg)
+![](https://img.zhangniandong.com/2024/20240307175424.jpg)
 
 填写tag，点击Create runner。
 
-![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_new.jpg)
+![](https://img.zhangniandong.com/2024/20240307175458.jpg)
 
 创建成功，得到runner authentication token：glrt-7mWJmg5B2wns7oN4QAv8
 
@@ -162,7 +162,7 @@ gitlab-runner register \
 
 注册成功后的效果：
 
-![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_.jpg)
+![](https://img.zhangniandong.com/2024/20240307181103.jpg)
 
 ### 构建项目
 
