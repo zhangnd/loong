@@ -122,7 +122,7 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 ![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_new.jpg)
 
-创建成功，得到token：glrt-5AZqiUy5yypqwLuhGrxz
+创建成功，得到runner authentication token：glrt-7mWJmg5B2wns7oN4QAv8
 
 ## GitLab Runner
 
