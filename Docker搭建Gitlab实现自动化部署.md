@@ -108,18 +108,6 @@ Password: ZFt6JVpRC61yJgEkK3tUOP6jx7VCExIaKf56bLRaXPw=
 
 至此，你可以将你的项目代码push到Gitlab上了。
 
-## GitLab Runner
-
-Install GitLab Runner on a server separate to where GitLab is installed.
-
-将GitLab Runner与GitLab分开部署。
-
-在另一台服务器上部署GitLab Runner，配置采用2核4G。
-
-公网ip：119.91.52.121
-
-Docker部分同上。
-
 ### 创建runner
 
 文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
@@ -135,6 +123,18 @@ Docker部分同上。
 ![](https://img.zhangniandong.com/2024/175.178.167.11_admin_runners_new.jpg)
 
 创建成功，得到token：glrt-5AZqiUy5yypqwLuhGrxz
+
+## GitLab Runner
+
+Install GitLab Runner on a server separate to where GitLab is installed.
+
+将GitLab Runner与GitLab分开部署。
+
+在另一台服务器上部署GitLab Runner，配置采用2核4G。
+
+公网ip：119.91.52.121
+
+Docker部分同上。
 
 ### 安装runner
 
@@ -156,7 +156,7 @@ yum install gitlab-runner
 gitlab-runner register \
   --non-interactive \
   --url "http://111.230.29.92" \
-  --token "glrt-5AZqiUy5yypqwLuhGrxz" \
+  --token "$RUNNER_TOKEN" \
   --executor "docker" \
   --docker-image alpine:latest \
   --description "docker-runner"
