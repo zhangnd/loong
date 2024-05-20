@@ -18,7 +18,7 @@ Memory：Up to 20 Requests per Second (RPS) or 1000 users - 8 GB (Minimum), 16 G
 
 传送门：[腾讯云按量计费](https://buy.cloud.tencent.com/cvm?tab=custom&devPayMode=hourly)
 
-公网ip：175.178.167.11
+公网ip：111.230.29.92
 
 ### 更新yum
 
@@ -66,7 +66,7 @@ mkdir -p /srv/gitlab
 
 ```bash
 docker run --detach \
-  --hostname 175.178.167.11 \
+  --hostname 111.230.29.92 \
   --publish 443:443 --publish 80:80 \
   --name gitlab \
   --restart always \
@@ -81,7 +81,7 @@ docker run --detach \
 
 启动需要几分钟，请耐心等待。
 
-浏览器访问：http://175.178.167.11
+浏览器访问：http://111.230.29.92
 
 ![](https://img.zhangniandong.com/2024/175.178.167.11_users_sign_in.jpg)
 
@@ -124,7 +124,7 @@ Docker部分同上。
 
 文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
 
-打开：http://175.178.167.11/admin/runners
+打开：http://111.230.29.92/admin/runners
 
 点击New instance runner。
 
@@ -155,7 +155,7 @@ yum install gitlab-runner
 ```bash
 gitlab-runner register \
   --non-interactive \
-  --url "http://175.178.167.11" \
+  --url "http://111.230.29.92" \
   --token "glrt-5AZqiUy5yypqwLuhGrxz" \
   --executor "docker" \
   --docker-image alpine:latest \
