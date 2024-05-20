@@ -1,5 +1,9 @@
 # Docker搭建Gitlab实现自动化部署
 
+CI/CD is a continuous method of software development, where you continuously build, test, deploy, and monitor iterative code changes.
+
+CI/CD是一种连续的软件开发方法，你可以在其中不断构建、测试、部署和监视迭代代码更改。
+
 ## GitLab
 
 ### 硬件要求
