@@ -156,7 +156,7 @@ yum install gitlab-runner
 gitlab-runner register \
   --non-interactive \
   --url "http://111.230.29.92" \
-  --token "$RUNNER_TOKEN" \
+  --token "glrt-7mWJmg5B2wns7oN4QAv8" \
   --executor "docker" \
   --docker-image alpine:latest \
   --description "docker-runner"
