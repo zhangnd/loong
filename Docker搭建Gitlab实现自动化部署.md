@@ -130,7 +130,7 @@ Install GitLab Runner on a server separate to where GitLab is installed.
 
 在另一台服务器上部署GitLab Runner，配置采用2核4G。
 
-公网ip：119.91.52.121
+公网ip：43.138.185.168
 
 Docker部分同上。
 
