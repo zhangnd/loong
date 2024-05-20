@@ -106,8 +106,6 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 ![](https://img.zhangniandong.com/2024/175.178.167.11_.jpg)
 
-至此，你可以将你的项目代码push到Gitlab上了。
-
 ### 创建runner
 
 文档：https://docs.gitlab.com/ee/ci/runners/runners_scope.html
