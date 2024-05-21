@@ -122,6 +122,10 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 创建成功，得到runner authentication token：glrt-7mWJmg5B2wns7oN4QAv8
 
+可以看到，runner还没有与Gitlab关联。
+
+![](https://img.zhangniandong.com/2024/20240307175706.jpg)
+
 ## GitLab Runner
 
 Install GitLab Runner on a server separate to where GitLab is installed.
