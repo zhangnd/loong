@@ -116,7 +116,7 @@ Password: 39Hedg/hjp98Hj85iaVrKLrng0qRt/DGioRmkcjst6o=
 
 ![](https://img.zhangniandong.com/2024/20240307175424.jpg)
 
-填写tag，点击Create runner。
+填写tags，点击Create runner。
 
 ![](https://img.zhangniandong.com/2024/20240307175458.jpg)
 
