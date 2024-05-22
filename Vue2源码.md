@@ -125,7 +125,7 @@ export function initMixin(Vue: Class<Component>) {
 }
 ```
 
-在 `flow/component.js` 中声明 **Component** 类型。
+在 `flow/component.js` 中声明了 **Component** 类型。
 
 ```js
 declare interface Component {
