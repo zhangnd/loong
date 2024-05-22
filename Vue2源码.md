@@ -32,7 +32,7 @@ new Vue({
 ```
 ```
 
-首先，找到 **Vue** 构造函数的定义，位于 `src/core/instance/index.js`。
+首先，找到 **Vue** 构造函数的定义，位于 `src/core/instance/index.js` 。
 
 ```js
 function Vue (options) {
@@ -274,7 +274,7 @@ declare interface Component {
 };
 ```
 
-挂载函数 **$mount** 位于 `src/platforms/web/runtime/index.js`。
+挂载函数 **$mount** 位于 `src/platforms/web/runtime/index.js` 。
 
 ```js
 // public mount method
@@ -287,7 +287,7 @@ Vue.prototype.$mount = function (
 }
 ```
 
-**mountComponent** 位于 `src/core/instance/lifecycle.js`。
+**mountComponent** 位于 `src/core/instance/lifecycle.js` 。
 
 ```js
 export function mountComponent (
@@ -361,5 +361,43 @@ export function mountComponent (
     callHook(vm, 'mounted')
   }
   return vm
+}
+```
+
+**Watcher** 位于 `src/core/observer/watcher.js` 。
+
+```js
+/**
+ * A watcher parses an expression, collects dependencies,
+ * and fires callback when the expression value changes.
+ * This is used for both the $watch() api and directives.
+ */
+export default class Watcher {
+	vm: Component;
+  expression: string;
+  cb: Function;
+  id: number;
+  deep: boolean;
+  user: boolean;
+  lazy: boolean;
+  sync: boolean;
+  dirty: boolean;
+  active: boolean;
+  deps: Array<Dep>;
+  newDeps: Array<Dep>;
+  depIds: SimpleSet;
+  newDepIds: SimpleSet;
+  before: ?Function;
+  getter: Function;
+  value: any;
+	
+	constructor (
+    vm: Component,
+    expOrFn: string | Function,
+    cb: Function,
+    options?: ?Object,
+    isRenderWatcher?: boolean
+  ) {
+	}
 }
 ```
