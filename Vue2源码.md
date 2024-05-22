@@ -373,7 +373,7 @@ export function mountComponent (
  * This is used for both the $watch() api and directives.
  */
 export default class Watcher {
-	vm: Component;
+  vm: Component;
   expression: string;
   cb: Function;
   id: number;
@@ -390,14 +390,14 @@ export default class Watcher {
   before: ?Function;
   getter: Function;
   value: any;
-	
-	constructor (
-		vm: Component,
+
+  constructor (
+    vm: Component,
     expOrFn: string | Function,
-		cb: Function,
-		options?: ?Object,
-		isRenderWatcher?: boolean
+    cb: Function,
+    options?: ?Object,
+    isRenderWatcher?: boolean
   ) {
-	}
+  }
 }
 ```
