@@ -392,11 +392,11 @@ export default class Watcher {
   value: any;
 	
 	constructor (
-    vm: Component,
+		vm: Component,
     expOrFn: string | Function,
-    cb: Function,
-    options?: ?Object,
-    isRenderWatcher?: boolean
+		cb: Function,
+		options?: ?Object,
+		isRenderWatcher?: boolean
   ) {
 	}
 }
