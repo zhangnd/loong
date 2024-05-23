@@ -1,3 +1,4 @@
+
 # Vue2源码
 
 Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：
@@ -364,40 +365,142 @@ export function mountComponent (
 }
 ```
 
-**Watcher** 位于 `src/core/observer/watcher.js`。
+**_render** 方法位于 `src/core/instance/render.js`。
 
 ```js
-/**
- * A watcher parses an expression, collects dependencies,
- * and fires callback when the expression value changes.
- * This is used for both the $watch() api and directives.
- */
-export default class Watcher {
-  vm: Component;
-  expression: string;
-  cb: Function;
-  id: number;
-  deep: boolean;
-  user: boolean;
-  lazy: boolean;
-  sync: boolean;
-  dirty: boolean;
-  active: boolean;
-  deps: Array<Dep>;
-  newDeps: Array<Dep>;
-  depIds: SimpleSet;
-  newDepIds: SimpleSet;
-  before: ?Function;
-  getter: Function;
-  value: any;
+Vue.prototype._render = function (): VNode {
+  const vm: Component = this
+  const { render, _parentVnode } = vm.$options
+
+  if (_parentVnode) {
+    vm.$scopedSlots = normalizeScopedSlots(
+      _parentVnode.data.scopedSlots,
+      vm.$slots,
+      vm.$scopedSlots
+    )
+  }
+
+  // set parent vnode. this allows render functions to have access
+  // to the data on the placeholder node.
+  vm.$vnode = _parentVnode
+  // render self
+  let vnode
+  try {
+    // There's no need to maintain a stack because all render fns are called
+    // separately from one another. Nested component's render fns are called
+    // when parent component is patched.
+    currentRenderingInstance = vm
+    vnode = render.call(vm._renderProxy, vm.$createElement)
+  } catch (e) {
+    handleError(e, vm, `render`)
+    // return error render result,
+    // or previous vnode to prevent render error causing blank component
+    /* istanbul ignore else */
+    if (process.env.NODE_ENV !== 'production' && vm.$options.renderError) {
+      try {
+        vnode = vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e)
+      } catch (e) {
+        handleError(e, vm, `renderError`)
+        vnode = vm._vnode
+      }
+    } else {
+      vnode = vm._vnode
+    }
+  } finally {
+    currentRenderingInstance = null
+  }
+  // if the returned array contains only a single node, allow it
+  if (Array.isArray(vnode) && vnode.length === 1) {
+    vnode = vnode[0]
+  }
+  // return empty vnode in case the render function errored out
+  if (!(vnode instanceof VNode)) {
+    if (process.env.NODE_ENV !== 'production' && Array.isArray(vnode)) {
+      warn(
+        'Multiple root nodes returned from render function. Render function ' +
+        'should return a single root node.',
+        vm
+      )
+    }
+    vnode = createEmptyVNode()
+  }
+  // set parent
+  vnode.parent = _parentVnode
+  return vnode
+}
+```
+
+**VNode** 的定义位于 `src/core/vdom/vnode.js`。
+
+```js
+export default class VNode {
+  tag: string | void;
+  data: VNodeData | void;
+  children: ?Array<VNode>;
+  text: string | void;
+  elm: Node | void;
+  ns: string | void;
+  context: Component | void; // rendered in this component's scope
+  key: string | number | void;
+  componentOptions: VNodeComponentOptions | void;
+  componentInstance: Component | void; // component instance
+  parent: VNode | void; // component placeholder node
+
+  // strictly internal
+  raw: boolean; // contains raw HTML? (server only)
+  isStatic: boolean; // hoisted static node
+  isRootInsert: boolean; // necessary for enter transition check
+  isComment: boolean; // empty comment placeholder?
+  isCloned: boolean; // is a cloned node?
+  isOnce: boolean; // is a v-once node?
+  asyncFactory: Function | void; // async component factory function
+  asyncMeta: Object | void;
+  isAsyncPlaceholder: boolean;
+  ssrContext: Object | void;
+  fnContext: Component | void; // real context vm for functional nodes
+  fnOptions: ?ComponentOptions; // for SSR caching
+  devtoolsMeta: ?Object; // used to store functional render context for devtools
+  fnScopeId: ?string; // functional scope id support
 
   constructor (
-    vm: Component,
-    expOrFn: string | Function,
-    cb: Function,
-    options?: ?Object,
-    isRenderWatcher?: boolean
+    tag?: string,
+    data?: VNodeData,
+    children?: ?Array<VNode>,
+    text?: string,
+    elm?: Node,
+    context?: Component,
+    componentOptions?: VNodeComponentOptions,
+    asyncFactory?: Function
   ) {
+    this.tag = tag
+    this.data = data
+    this.children = children
+    this.text = text
+    this.elm = elm
+    this.ns = undefined
+    this.context = context
+    this.fnContext = undefined
+    this.fnOptions = undefined
+    this.fnScopeId = undefined
+    this.key = data && data.key
+    this.componentOptions = componentOptions
+    this.componentInstance = undefined
+    this.parent = undefined
+    this.raw = false
+    this.isStatic = false
+    this.isRootInsert = true
+    this.isComment = false
+    this.isCloned = false
+    this.isOnce = false
+    this.asyncFactory = asyncFactory
+    this.asyncMeta = undefined
+    this.isAsyncPlaceholder = false
+  }
+
+  // DEPRECATED: alias for componentInstance for backwards compat.
+  /* istanbul ignore next */
+  get child (): Component | void {
+    return this.componentInstance
   }
 }
 ```
