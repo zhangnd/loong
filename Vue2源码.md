@@ -32,7 +32,7 @@ new Vue({
 ```
 ```
 
-首先，找到 **Vue** 构造函数的定义，位于 `src/core/instance/index.js` 。
+首先，找到 **Vue** 构造函数的定义，位于 `src/core/instance/index.js`。
 
 ```js
 function Vue (options) {
@@ -274,7 +274,7 @@ declare interface Component {
 };
 ```
 
-挂载函数 **$mount** 位于 `src/platforms/web/runtime/index.js` 。
+挂载函数 **$mount** 位于 `src/platforms/web/runtime/index.js`。
 
 ```js
 // public mount method
@@ -287,7 +287,7 @@ Vue.prototype.$mount = function (
 }
 ```
 
-**mountComponent** 位于 `src/core/instance/lifecycle.js` 。
+**mountComponent** 位于 `src/core/instance/lifecycle.js`。
 
 ```js
 export function mountComponent (
@@ -364,7 +364,7 @@ export function mountComponent (
 }
 ```
 
-**Watcher** 位于 `src/core/observer/watcher.js` 。
+**Watcher** 位于 `src/core/observer/watcher.js`。
 
 ```js
 /**
