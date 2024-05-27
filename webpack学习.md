@@ -196,75 +196,75 @@ async createCompiler(options, callback) {
 ```js
 const webpack = /** @type {WebpackFunctionSingle & WebpackFunctionMulti} */ (
   /**
-	 * @param {WebpackOptions | (ReadonlyArray<WebpackOptions> & MultiCompilerOptions)} options options
-	 * @param {Callback<Stats> & Callback<MultiStats>=} callback callback
-	 * @returns {Compiler | MultiCompiler | null} Compiler or MultiCompiler
-	 */
+   * @param {WebpackOptions | (ReadonlyArray<WebpackOptions> & MultiCompilerOptions)} options options
+   * @param {Callback<Stats> & Callback<MultiStats>=} callback callback
+   * @returns {Compiler | MultiCompiler | null} Compiler or MultiCompiler
+   */
   (options, callback) => {
     const create = () => {
       if (!asArray(options).every(webpackOptionsSchemaCheck)) {
-				getValidateSchema()(webpackOptionsSchema, options);
-				util.deprecate(
-					() => {},
-					"webpack bug: Pre-compiled schema reports error while real schema is happy. This has performance drawbacks.",
-					"DEP_WEBPACK_PRE_COMPILED_SCHEMA_INVALID"
-				)();
-			}
+        getValidateSchema()(webpackOptionsSchema, options);
+        util.deprecate(
+          () => {},
+          "webpack bug: Pre-compiled schema reports error while real schema is happy. This has performance drawbacks.",
+          "DEP_WEBPACK_PRE_COMPILED_SCHEMA_INVALID"
+        )();
+      }
       /** @type {MultiCompiler|Compiler} */
-			let compiler;
-			/** @type {boolean | undefined} */
-			let watch = false;
-			/** @type {WatchOptions|WatchOptions[]} */
-			let watchOptions;
-			if (Array.isArray(options)) {
-				/** @type {MultiCompiler} */
-				compiler = createMultiCompiler(
-					options,
-					/** @type {MultiCompilerOptions} */ (options)
-				);
-				watch = options.some(options => options.watch);
-				watchOptions = options.map(options => options.watchOptions || {});
-			} else {
-				const webpackOptions = /** @type {WebpackOptions} */ (options);
-				/** @type {Compiler} */
-				compiler = createCompiler(webpackOptions);
-				watch = webpackOptions.watch;
-				watchOptions = webpackOptions.watchOptions || {};
-			}
-			return { compiler, watch, watchOptions };
+      let compiler;
+      /** @type {boolean | undefined} */
+      let watch = false;
+      /** @type {WatchOptions|WatchOptions[]} */
+      let watchOptions;
+      if (Array.isArray(options)) {
+        /** @type {MultiCompiler} */
+        compiler = createMultiCompiler(
+          options,
+          /** @type {MultiCompilerOptions} */ (options)
+        );
+        watch = options.some(options => options.watch);
+        watchOptions = options.map(options => options.watchOptions || {});
+      } else {
+        const webpackOptions = /** @type {WebpackOptions} */ (options);
+        /** @type {Compiler} */
+        compiler = createCompiler(webpackOptions);
+        watch = webpackOptions.watch;
+        watchOptions = webpackOptions.watchOptions || {};
+      }
+      return { compiler, watch, watchOptions };
     };
     if (callback) {
-			try {
-				const { compiler, watch, watchOptions } = create();
-				if (watch) {
-					compiler.watch(watchOptions, callback);
-				} else {
-					compiler.run((err, stats) => {
-						compiler.close(err2 => {
-							callback(
-								err || err2,
-								/** @type {options extends WebpackOptions ? Stats : MultiStats} */
-								(stats)
-							);
-						});
-					});
-				}
-				return compiler;
-			} catch (err) {
-				process.nextTick(() => callback(/** @type {Error} */ (err)));
-				return null;
-			}
-		} else {
-			const { compiler, watch } = create();
-			if (watch) {
-				util.deprecate(
-					() => {},
-					"A 'callback' argument needs to be provided to the 'webpack(options, callback)' function when the 'watch' option is set. There is no way to handle the 'watch' option without a callback.",
-					"DEP_WEBPACK_WATCH_WITHOUT_CALLBACK"
-				)();
-			}
-			return compiler;
-		}
+      try {
+        const { compiler, watch, watchOptions } = create();
+        if (watch) {
+          compiler.watch(watchOptions, callback);
+        } else {
+          compiler.run((err, stats) => {
+            compiler.close(err2 => {
+              callback(
+                err || err2,
+                /** @type {options extends WebpackOptions ? Stats : MultiStats} */
+                (stats)
+              );
+            });
+          });
+        }
+        return compiler;
+      } catch (err) {
+        process.nextTick(() => callback(/** @type {Error} */ (err)));
+        return null;
+      }
+    } else {
+      const { compiler, watch } = create();
+      if (watch) {
+        util.deprecate(
+          () => {},
+          "A 'callback' argument needs to be provided to the 'webpack(options, callback)' function when the 'watch' option is set. There is no way to handle the 'watch' option without a callback.",
+          "DEP_WEBPACK_WATCH_WITHOUT_CALLBACK"
+        )();
+      }
+      return compiler;
+    }
   }
 );
 ```
