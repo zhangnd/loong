@@ -63,7 +63,6 @@ console.log(res); // [20, 30, 40]
 ```js
 let arr = [10, 30, 50];
 let res = arr.concat([20, 40, 60]);
-console.log(arr); // [10, 30, 50]
 console.log(res); // [10, 30, 50, 20, 40, 60]
 ```
 
@@ -72,7 +71,6 @@ console.log(res); // [10, 30, 50, 20, 40, 60]
 ```js
 let arr = [10, 20, 30, 40, 50];
 let res = arr.slice(1, 3);
-console.log(arr); // [10, 20, 30, 40, 50]
 console.log(res); // [20, 30]
 ```
 
@@ -81,10 +79,46 @@ console.log(res); // [20, 30]
 ```js
 let arr = [10, 20, 30];
 let res = arr.join(',');
-console.log(arr); // [10, 20, 30]
 console.log(res); // 10,20,30
 ```
 
 ## ES6新增的方法
 
-**forEach()**：
+**forEach()**：循环遍历数组。
+
+```js
+```
+
+**map()**：映射数组。
+
+```js
+let arr = [10, 20, 30];
+let res = arr.map((item, index) => {
+  return item * 10;
+});
+console.log(res); // [100, 200, 300]
+```
+
+**filter()**：过滤数组。
+
+```js
+let arr = [10, 20, 30];
+let res = arr.filter((item, index) => {
+  return item > 10;
+});
+console.log(res); // [20, 30]
+```
+
+**find()**：
+
+```js
+```
+
+**some()**：
+
+```js
+```
+
+**every()**：
+
+**reduce()**：
