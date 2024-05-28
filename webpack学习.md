@@ -84,7 +84,7 @@ IF EXIST "%dp0%\node.exe" (
 endLocal & goto #_undefined_# 2>NUL || title %COMSPEC% & "%_prog%"  "%dp0%\..\webpack\bin\webpack.js" %*
 ```
 
-总体逻辑就是，最后都是使用 node 去执行 `node_modules\webpack\bin\webpack.js`。
+总体逻辑就是先判断当前目录下是否存在 node 执行文件，无论存不存在，最后都是使用 node 去执行 `node_modules\webpack\bin\webpack.js`。
 
 linux 下的启动脚本逻辑也基本一致。
 
@@ -92,7 +92,7 @@ linux 下的启动脚本逻辑也基本一致。
 
 然后 `cli.js` 引用 `node_modules\webpack-cli\lib\bootstrap.js` 并执行 `runCLI` 方法。
 
-接着 `runCLI` 引用 `node_modules\webpack-cli\lib\webpack-cli.js` 并执行 `run` 方法：
+接着 `runCLI` 引用 `node_modules\webpack-cli\lib\webpack-cli.js` 并执行 `run` 方法。
 
 ```js
 async run(args, parseOptions) {
