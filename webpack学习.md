@@ -189,9 +189,15 @@ async createCompiler(options, callback) {
 }
 ```
 
-`node_modules\webpack\lib\index.js`。
+`webpack` 入口文件 `node_modules\webpack\lib\index.js`。
 
-`node_modules\webpack\lib\webpack.js`。
+```js
+const fn = lazyFunction(() => require("./webpack"));
+module.exports = mergeExports(fn, {
+});
+```
+
+引用 `node_modules\webpack\lib\webpack.js`。
 
 ```js
 const webpack = /** @type {WebpackFunctionSingle & WebpackFunctionMulti} */ (
