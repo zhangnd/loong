@@ -47,12 +47,15 @@ console.log(arr); // [30, 20, 10]
 console.log(res); // [30, 20, 10]
 ```
 
-**splice()**：截取数组，返回截取出来的数组。
+**splice()**：拼接数组，返回删除元素的数组。
 
 ```js
 let arr = [10, 20, 30, 40, 50, 60, 70];
 let res = arr.splice(1, 3);
 console.log(arr); // [10, 50, 60, 70]
+console.log(res); // [20, 30, 40]
+res = arr.splice(1, 3, 80, 90);
+console.log(arr); // [10, 80, 90, 50, 60, 70]
 console.log(res); // [20, 30, 40]
 ```
 
@@ -66,7 +69,7 @@ let res = arr.concat([20, 40, 60]);
 console.log(res); // [10, 30, 50, 20, 40, 60]
 ```
 
-**slice()**：
+**slice()**：截取数组，返回截取出来的数组。
 
 ```js
 let arr = [10, 20, 30, 40, 50];
@@ -74,7 +77,7 @@ let res = arr.slice(1, 3);
 console.log(res); // [20, 30]
 ```
 
-**join()**：
+**join()**：把数组中的所有元素通过指定的分隔符进行分隔转换为一个字符串。
 
 ```js
 let arr = [10, 20, 30];
@@ -87,6 +90,10 @@ console.log(res); // 10,20,30
 **forEach()**：循环遍历数组。
 
 ```js
+let arr = [10, 20, 30];
+arr.forEach((item, index) => {
+  console.log(item);
+});
 ```
 
 **map()**：映射数组。
@@ -109,16 +116,32 @@ let res = arr.filter((item, index) => {
 console.log(res); // [20, 30]
 ```
 
-**find()**：
+**find()**：查找数组中符合条件的第一个元素。
 
 ```js
+let arr = [10, 20, 30];
+let res = arr.find((item, index) => {
+  return item > 10;
+});
+console.log(res); // 20
 ```
 
-**some()**：
+**some()**：判断数组中的元素是否满足指定条件。
 
 ```js
+let arr = [10, 20, 30];
+let res = arr.some((item, index) => {
+  return item > 10;
+});
+console.log(res); // true
 ```
 
-**every()**：
+**every()**：判断数组中所有元素是否都符合指定条件。
 
-**reduce()**：
+```js
+let arr = [10, 20, 30];
+let res = arr.every((item, index) => {
+  return item < 30;
+});
+console.log(res); // false
+```
