@@ -6,6 +6,10 @@
     "editor.fontSize": 18,
     "editor.wordWrap": "on",
     "editor.formatOnSave": true,
+    "editor.unicodeHighlight.allowedLocales": {
+        "zh-hans": true,
+        "zh-hant": true
+    },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "always",
         "source.fixAll.stylelint": "always"
